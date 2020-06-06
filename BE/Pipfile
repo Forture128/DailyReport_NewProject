@@ -9,6 +9,9 @@ verify_ssl = true
 django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
+numpy = "*"
+opencv-python = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"
