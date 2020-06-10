@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from device import views
+from device.api.devicelocation import DeviceLocationView
+from device.api.device import DeviceView
 
 router = routers.DefaultRouter()
-router.register(r'devices', views.DeviceView, 'device')
+router.register(r'devices', DeviceView, 'device')
+router.register(r'deviceLocation', DeviceLocationView, 'deviceLocation')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path(r'mauth/', include('device.api.urls'))
 ]
