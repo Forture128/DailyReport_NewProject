@@ -18,13 +18,16 @@ from django.urls import path, include
 from rest_framework import routers
 from device.api.devicelocation import DeviceLocationView
 from device.api.device import DeviceView
+from device.api.vehincle import VehincleListView, VehincleDetailView
 
 router = routers.DefaultRouter()
 router.register(r'devices', DeviceView, 'device')
 router.register(r'deviceLocation', DeviceLocationView, 'deviceLocation')
+router.register(r'vehincle', VehincleListView, 'vehincle')
+router.register(r'vehincle-detail', VehincleDetailView, 'vehincle-detail')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path(r'mauth/', include('device.api.urls'))
+    # path(r'mauth/', include('device.api.urls'))
 ]
